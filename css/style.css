@@ -1,6 +1,7 @@
 html, body{
     height:100%;
     width:100%;
+    min-height:700px;
 }
 
 /* helper classes */
@@ -9,16 +10,34 @@ html, body{
     display:block;
 }
 body{
-    background: url("../img/background-1877877_640.jpg");
+    background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url("../img/pink-2129508_1920.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     background-position:center;
     height:100%;
     position:relative;
+    
+}
+.piano{
+    margin:0 auto;
+    width:200px;
+    text-align:center;
+    padding:20px;
+    background-color:white;
+    border: 2px black solid;
+    border-radius: 10px;
+    font-weight:700;
+    font-size:20px;
+}
+.piano a{
+    text-decoration:none;
 }
 .keys{
-    position:absolute;
-    top:50%;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 .key{
     border: 2px solid black;
@@ -28,7 +47,7 @@ body{
     padding:10px;
     width:50px;
     text-align:center;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.7);
     display: inline-block;
     transition: all 0.07s;
 }
