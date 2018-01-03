@@ -10,11 +10,30 @@ body{
     padding: 20px;
     border: 50px solid black;
     border-radius: 50%;
+    position:relative;
+    transform: translateY(-3px);
 }
+
+.hand{
+    width:50%;
+    height:6px;
+    background:black;
+    position:absolute;
+    top:50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+
+
+
+/*   CSS-ONLY SOLUTION
 .sec, .min, .hour{
     border-radius: 10px; 
     position:relative;
-    transform-origin:bottom;
+    transform-origin:100%;
 }
 .sec{
     height:250px;
@@ -39,10 +58,10 @@ body{
     background:radial-gradient(black, seagreen);
     left:240px;
     top:-430px;
-    z-index:5;
+    z-index:1;
     animation:hour_animation 43200s linear infinite;
 }
-
+   
 @keyframes sec_animation{
     from{transform:rotateZ(0deg);}
     to{transform:rotateZ(360deg);}
@@ -55,7 +74,7 @@ body{
     from{transform:rotateZ(0deg);}
     to{transform:rotateZ(360deg);}
 }
-
+*/
 
 
 
