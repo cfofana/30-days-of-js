@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>CSS Variables</title>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8"> <!-- character encoding -->
+        <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"> <!-- Display webpage in edge mode/IE in highest supported document mode -->
+        <meta name=viewport content="width=device-width, initial-scale=1"> <!-- Optimizations for mobile devices -->
+
+        <!-- Google fonts -->
+        
+       <style>
+           /* CSS Variables */
+           :root{
+               --base: #ffc600;
+               --spacing: 10px;
+               --blur : 10px;
+           }
+           img{
+               padding: var(--spacing);
+               background: var(--base);
+               filter: blur(var(--blur));
+           }
+           .h1{
+               color: var(--base);
+           }
+           /* GENERAL CSS RULES */
+           body{
+               text-align: center;
+               background: #193549;
+               color:white;
+               font-family: 'helvetica neue', sans-serif;
+               font-weight:100;
+               font-size: 50px;
+           }
+           .controls{
+               margin-bottom: 50px;
+           }
+           input{
+               width: 100px;
+           }
+           img{
+               max-width:100%;
+               max-height:500px;
+           }
+        </style>
+
+
+        <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"</script>
+        <![endif]-->
+    </head>
+
+    <body>
+       <!-- Data attribute data-sizing -->
+        <h2>Update CSS Variables with <span class="h1">JS</span></h2>
+        <div class="controls">
+            <label for="spacing">Spacing:</label>
+            <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+            
+            <label for="blur">Blur:</label>
+            <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+            
+            <label for="base">Base Color</label>
+            <input type="color" name="base" value="#ffc600">
+        </div>      
+        <img src="pink-daisies.jpg">    
+       
+        <!-- JavaScript -->
+        <script>
+            const inputs = document.querySelectorAll('.controls input');
+            function handleUpdate(){
+                const suffix = this.dataset.sizing || "";
+                document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+            }
+            inputs.forEach(input => input.addEventListener('change', handleUpdate));
+            inputs.forEach(input => input.addEventListener('mouseover', handleUpdate));
+            
+            
+        </script>
+        
+    </body>
+</html>
