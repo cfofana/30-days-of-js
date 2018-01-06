@@ -74,9 +74,7 @@
                   flex: 1 0 auto;
                   display: flex;
                   justify-content: center;
-                  align-items: center;
-                  border: 1px solid red;
-                    
+                  align-items: center;  
                 }
             
                 .panel > *:first-child {
@@ -149,6 +147,20 @@
        
         <!-- JavaScript -->
         
-        <script></script>
+        <script>
+            const panels = document.querySelectorAll(".panel");
+            function toggleOpen(){
+                this.classList.toggle('open');
+            }
+            function toggleActive(e){
+                if(e.propertyName.includes('flex')){
+                    this.classList.toggle('open-active');
+                }
+            }
+            // if u use toggleOpen(), it'll run upon page load. Use toggleOpen to only run function when click event occurs
+            panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+            panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+            
+        </script>
     </body>
 </html>
