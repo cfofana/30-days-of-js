@@ -1,31 +1,71 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Blueprint</title>
+<head>
+    <title>Blueprint</title>
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8"> <!-- character encoding -->
-        <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"> <!-- Display webpage in edge mode/IE in highest supported document mode -->
-        <meta name=viewport content="width=device-width, initial-scale=1"> <!-- Optimizations for mobile devices -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- character encoding -->
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <!-- Display webpage in edge mode/IE in highest supported document mode -->
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <!-- Optimizations for mobile devices -->
 
-        <!-- Google fonts -->
-        
-        <link href="style.css" rel="stylesheet">
+    <!-- Google fonts -->
 
-        <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-            <!--[if lt IE 9]>
+    <link href="style.css" rel="stylesheet">
+
+    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"</script>
         <![endif]-->
-    </head>
+</head>
 
-    <body>
-                
-       
-        <!-- JavaScript -->
-        <script>
+<body>
+    <form class="search-form">
+        <input type="text" class="search" placeholder="City or State">
+        <ul class="suggestions">
+            <li>Filter for a city</li>
+            <li>or a state</li>
+        </ul>
+    </form>
+
+    <!-- JavaScript -->
+    <script>
+        const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+        const cities = [];
         
-        </script>
-    </body>
+        fetch(endpoint).then(blob => blob.json()).then(data => cities.push(...data));
+       // console.log(promise);
+        function findMatches(wordToMatch, cities){
+            return cities.filter(place => {
+                // check if city/state matches searched word
+                const regex = new RegExp(wordToMatch, 'gi');
+                return place.city.match(regex) || place.state.match(regex);
+            });
+        }
+        
+        function displayMatches(){
+            console.log(this.value);
+        }
+        
+        const searchInput = document.querySelector(".search");
+        
+        const suggestions = document.querySelector(".suggestions");
+        
+        searchInput.addEventListener('change', displayMatches);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+
 </html>
