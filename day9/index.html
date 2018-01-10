@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Day 9</title>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8"> <!-- character encoding -->
+        <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"> <!-- Display webpage in edge mode/IE in highest supported document mode -->
+        <meta name=viewport content="width=device-width, initial-scale=1"> <!-- Optimizations for mobile devices -->
+
+        <!-- Google fonts -->
+
+
+        <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"</script>
+        <![endif]-->
+    </head>
+
+    <body>
+                
+       <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+      console.log('hello');
+
+    // Interpolated
+      console.log("hello, I am a %s string", 'ceesay');
+      console.log(`Hello, I am a ${name}`, 'ceesay')
+
+    // Styled
+      console.log('%c I am a string', 'font-size:40px; background:pink; color:white');
+
+    // warning!
+      console.warn("OH NO!!! WHAT HAVE YOU DONE!!!");
+
+    // Error :|
+      console.error("Error in your brain!");
+
+    // Info
+      console.info("Crocodiles eat 3-4 people per year. Yikes. Now I'm gonna have nightmares.");
+
+    // Testing/Assert. console.asser() only runs when condition fails. If true, nothing happens
+      console.assert(1 === 2, "1 is not equal to 2!");
+      const p = document.querySelector('p');
+      console.assert(p.classList.contains('ouch'), 'p does not have a class of ouch');
+
+    // clearing
+      console.clear();
+
+    // Viewing DOM Elements
+      console.log(p);
+      console.dir(p);
+
+    // Grouping together
+      dogs.forEach(dog => {
+          // use console.group if u want it to be uncollapsed by default
+          console.groupCollapsed(`${dog.name}`);
+          console.log(`This is ${dog.name}`);
+          console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+          console.groupEnd(`${dog.name}`);
+      });
+
+    // counting
+      console.count('pink');
+      console.count('pink');
+      console.count('blue');
+      console.count('pink');
+      console.count('blue');
+      
+      console.clear();
+    // timing
+      console.time('fetching data');
+      fetch('https://api.github.com/users/wesbos').then(data => data.json()).then(data => {
+          console.timeEnd('fetching data');
+          console.log(data);
+      });
+      
+      // table
+      console.table(dogs);
+
+      
+      
+      
+      
+      
+  </script>
+    </body>
+</html>
