@@ -64,11 +64,29 @@
       console.dir(p);
 
     // Grouping together
+      dogs.forEach(dog => {
+          // use console.group if u want it to be uncollapsed by default
+          console.groupCollapsed(`${dog.name}`);
+          console.log(`This is ${dog.name}`);
+          console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+          console.groupEnd(`${dog.name}`);
+      });
 
     // counting
+      console.count('pink');
+      console.count('pink');
+      console.count('blue');
+      console.count('pink');
+      console.count('blue');
+      
 
     // timing
 
+      
+      
+      
+      
+      
   </script>
     </body>
 </html>
