@@ -111,6 +111,22 @@
        
         
         <script>
+            const checkBoxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+            
+            let lastChecked;
+            
+            function handleCheck(e){
+                lastChecked = this;
+                let inBetween = false;
+                // if the shift key is being held down and the checkbox is checked
+            if(e.shiftKey && this.checked){
+                //loop over every single checkbox
+                checkBoxes.forEach(checkbox => {
+                    console.log(checkbox);
+                })
+            }
+            }
+            checkBoxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
         
         </script>
     </body>
